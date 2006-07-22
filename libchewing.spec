@@ -1,12 +1,12 @@
 Summary:	Intelligent phonetic input method library for Traditional Chinese
 Summary(pl):	Biblioteka inteligentnej fonetycznej metody wprowadzania chiñskiego tradycyjnego
 Name:		libchewing
-Version:	0.2.7
+Version:	0.3.0
 Release:	1
 License:	LGPL v2.1
 Group:		Libraries
 Source0:	http://chewing.csie.net/download/libchewing/%{name}-%{version}.tar.gz
-# Source0-md5:	ca4a4834daf9247582de9813250e8466
+# Source0-md5:	d60bdc2b3f81b70963cd01a93049a8e3
 URL:		http://chewing.csie.net/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
