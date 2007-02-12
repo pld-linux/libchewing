@@ -1,5 +1,5 @@
 Summary:	Intelligent phonetic input method library for Traditional Chinese
-Summary(pl):	Biblioteka inteligentnej fonetycznej metody wprowadzania chiñskiego tradycyjnego
+Summary(pl.UTF-8):   Biblioteka inteligentnej fonetycznej metody wprowadzania chiÅ„skiego tradycyjnego
 Name:		libchewing
 Version:	0.2.7
 Release:	1
@@ -16,35 +16,35 @@ Chinese. It provides the core algorithm and logic that can be used by
 various input methods. The Chewing input method is a smart bopomofo
 phonetics input method that is useful for inputting Mandarin Chinese.
 
-%description -l pl
+%description -l pl.UTF-8
 libchewing to biblioteka inteligentnej fonetycznej metody wprowadzania
-tekstu w jêzyku chiñskim tradycyjnym. Udostêpnia g³ówny algorytm i
-logikê do u¿ywania w ró¿nych metodach wprowadzania. Metoda Chewing to
+tekstu w jÄ™zyku chiÅ„skim tradycyjnym. UdostÄ™pnia gÅ‚Ã³wny algorytm i
+logikÄ™ do uÅ¼ywania w rÃ³Å¼nych metodach wprowadzania. Metoda Chewing to
 inteligentna metoda wprowadzania fonetyki bopomofo przydatna do
-wprowadzania chiñskiego mandaryñskiego.
+wprowadzania chiÅ„skiego mandaryÅ„skiego.
 
 %package devel
 Summary:	Header files for libchewing library
-Summary(pl):	Pliki nag³ówkowe biblioteki libchewing
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe biblioteki libchewing
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files for libchewing library.
 
-%description devel -l pl
-Pliki nag³ówkowe biblioteki libchewing.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe biblioteki libchewing.
 
 %package static
 Summary:	Static libchewing library
-Summary(pl):	Statyczna biblioteka libchewing
+Summary(pl.UTF-8):   Statyczna biblioteka libchewing
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static libchewing library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka libchewing.
 
 %prep
