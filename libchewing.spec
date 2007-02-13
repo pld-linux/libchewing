@@ -1,5 +1,5 @@
 Summary:	Intelligent phonetic input method library for Traditional Chinese
-Summary(pl.UTF-8):   Biblioteka inteligentnej fonetycznej metody wprowadzania chińskiego tradycyjnego
+Summary(pl.UTF-8):	Biblioteka inteligentnej fonetycznej metody wprowadzania chińskiego tradycyjnego
 Name:		libchewing
 Version:	0.2.7
 Release:	1
@@ -25,7 +25,7 @@ wprowadzania chińskiego mandaryńskiego.
 
 %package devel
 Summary:	Header files for libchewing library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki libchewing
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libchewing
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -37,7 +37,7 @@ Pliki nagłówkowe biblioteki libchewing.
 
 %package static
 Summary:	Static libchewing library
-Summary(pl.UTF-8):   Statyczna biblioteka libchewing
+Summary(pl.UTF-8):	Statyczna biblioteka libchewing
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
