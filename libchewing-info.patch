@@ -1,0 +1,14 @@
+--- libchewing-0.4.0/doc/libchewing.texi.orig	2014-04-10 05:08:46.000000000 +0200
++++ libchewing-0.4.0/doc/libchewing.texi	2016-04-02 23:38:54.362608705 +0200
+@@ -4,9 +4,9 @@
+ @settitle libchewing
+ @c %**end of header
+ @include version.texi
+-@dircategory Localization
++@dircategory Libraries:
+ @direntry
+-* libchewing: (libchewing).           The libchewing reference manual.
++* libchewing: (libchewing).		The libchewing reference manual
+ @end direntry
+ @copying
+ This is the ``libchewing Reference Manual'' corresponding to libchewing
