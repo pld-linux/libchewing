@@ -1,19 +1,27 @@
+#
+# Conditional build:
+%bcond_without	static_libs	# static library
+
 Summary:	Intelligent phonetic input method library for Traditional Chinese
 Summary(pl.UTF-8):	Biblioteka inteligentnej fonetycznej metody wprowadzania chińskiego tradycyjnego
 Name:		libchewing
-Version:	0.5.1
+Version:	0.6.0
 Release:	1
 License:	LGPL v2.1
 Group:		Libraries
 #Source0Download: https://github.com/chewing/libchewing/releases
-Source0:	https://github.com/chewing/libchewing/releases/download/v%{version}/%{name}-%{version}.tar.bz2
-# Source0-md5:	2739d5c5697db2eb1d097b6bfb73bf0c
+Source0:	https://github.com/chewing/libchewing/releases/download/v%{version}/%{name}-%{version}.tar.xz
+# Source0-md5:	8ba443ebf263104c6b02e6dc6ab4135c
 Patch0:		%{name}-info.patch
-URL:		http://chewing.im/
+URL:		https://chewing.im/
+BuildRequires:	cmake >= 3.21.0
 # only for tests
 #BuildRequires:	ncurses-devel >= 5
+BuildRequires:	rpmbuild(macros) >= 1.605
 BuildRequires:	sqlite3-devel >= 3
+BuildRequires:	tar >= 1:1.22
 BuildRequires:	texinfo
+BuildRequires:	xz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -58,18 +66,28 @@ Statyczna biblioteka libchewing.
 %patch0 -p1
 
 %build
-%configure \
-	--disable-silent-rules
-%{__make}
+%if %{with static_libs}
+%cmake -B build-static \
+	-DBUILD_SHARED_LIBS=OFF
+
+%{__make} -C build-static
+%endif
+
+%cmake -B build \
+	-DBUILD_INFO=ON
+
+%{__make} -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
+%if %{with static_libs}
+%{__make} -C build-static install \
 	DESTDIR=$RPM_BUILD_ROOT
+%endif
 
-# obsoleted by pkg-config
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/libchewing.la
+%{__make} -C build install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -85,7 +103,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README.md TODO
+%doc AUTHORS NEWS README.md
 %attr(755,root,root) %{_libdir}/libchewing.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libchewing.so.3
 %{_datadir}/libchewing
@@ -97,6 +115,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_pkgconfigdir}/chewing.pc
 %{_infodir}/libchewing.info*
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libchewing.a
+%endif
